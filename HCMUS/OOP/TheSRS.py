@@ -65,12 +65,12 @@ class Course:
     def getCredits(self) -> int:
         return self.__credits
 
-    def getSections(self) -> List['Section']:  # Fixed method name
+    def getSections(self) -> List['Section']:  
         return self.__sections.copy()
 
     # display dùng str cho streamlit sau này
     def __str__(self) -> str:
-        return f"{self.__courseNo} - {self.__courseName} ({self.__credits} credits)"  # Fixed variable names
+        return f"{self.__courseNo} - {self.__courseName} ({self.__credits} credits)"  
 
 
 class Section:
@@ -110,9 +110,9 @@ class Section:
                 for course in prerequisites:
                     grade = transcript.getGrade(course.getCourseNo())
                     if grade is None:
-                        return False, f"Missing prerequisite: {course.getCourseNo()}"  # Fixed method name
+                        return False, f"Missing prerequisite: {course.getCourseNo()}"  
                     if float(grade) < 5.0:
-                        return False, f"Low grade for prerequisite {course.getCourseNo()}: {grade}"  # Fixed method name
+                        return False, f"Low grade for prerequisite {course.getCourseNo()}: {grade}" 
 
             self.__students.append(student)
             student.attendSection(self)
@@ -152,7 +152,7 @@ class Section:
     def getProfessor(self):
         return self.__professor
 
-    def getEnrolledCount(self) -> int:  # Fixed method name
+    def getEnrolledCount(self) -> int:  
         return len(self.__students)
 
     def __str__(self) -> str:
